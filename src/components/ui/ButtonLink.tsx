@@ -8,11 +8,10 @@ type Variant = "primary" | "secondary" | "ghost" | "brass";
 
 const styles: Record<Variant, string> = {
   primary:
-    "bg-leaf text-white hover:bg-leaf-deep shadow-[0_14px_34px_-18px_rgba(13,92,69,0.8)]",
-  secondary:
-    "bg-transparent text-ink border border-[color:var(--line-strong)] hover:bg-paper",
-  ghost: "bg-white/10 text-white border border-white/25 hover:bg-white/18",
-  brass: "bg-brass text-ink hover:brightness-105 shadow-[0_14px_34px_-18px_rgba(201,162,39,0.7)]",
+    "bg-leaf text-white hover:bg-leaf-deep shadow-[0_16px_40px_-18px_rgba(15,118,110,0.85)]",
+  secondary: "bg-white text-ink border border-[color:var(--line-strong)] hover:bg-mist",
+  ghost: "bg-white/12 text-white border border-white/30 hover:bg-white/20",
+  brass: "bg-leaf text-white hover:bg-leaf-deep",
 };
 
 export function ButtonLink({
@@ -30,7 +29,7 @@ export function ButtonLink({
 }) {
   const reduce = useReducedMotion();
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[15px] font-semibold tracking-tight transition will-change-transform",
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-semibold tracking-tight transition will-change-transform",
     styles[variant],
     className,
   );
@@ -47,7 +46,12 @@ export function ButtonLink({
 
   if (external || href.startsWith("http") || href.startsWith("mailto")) {
     return (
-      <a href={href} className={classes} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
+      <a
+        href={href}
+        className={classes}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel="noreferrer"
+      >
         {inner}
       </a>
     );
