@@ -1,24 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Studio Teal — Reelo/Fudr-class marketing energy, UNIT product truth */
+  /* Competitor-class polish: Fudr dark energy + Reelo pastel cards + UNIT teal */
   --ink: #0b1220;
-  --ink-soft: #4b5568;
-  --mist: #f5f7fa;
-  --mist-deep: #e8edf3;
+  --ink-soft: #526072;
+  --mist: #f4f6f9;
+  --mist-deep: #e7ecf2;
   --paper: #ffffff;
-  --leaf: #0f766e;
-  --leaf-deep: #0a5c56;
-  --leaf-soft: #ccfbf1;
-  --brass: #0f766e;
-  --brass-soft: #99f6e4;
-  --ember: #e11d48;
+  --leaf: #00a3a0;
+  --leaf-deep: #0f766e;
+  --leaf-soft: #d5f5f3;
+  --navy: #001f25;
+  --peach: #fee6e0;
+  --peach-deep: #ffb38e;
+  --butter: #fff2a8;
+  --mint: #d8f5ef;
+  --lilac: #ebe7ff;
+  --ember: #f07c33;
+  --brass: #00a3a0;
+  --brass-soft: #9ef0ec;
   --line: rgba(11, 18, 32, 0.08);
   --line-strong: rgba(11, 18, 32, 0.14);
   --wa: #25d366;
-  --shadow: 0 24px 60px -28px rgba(15, 118, 110, 0.35);
-  --shadow-soft: 0 10px 30px -12px rgba(11, 18, 32, 0.12);
-  --radius: 1rem;
+  --shadow: 0 28px 70px -24px rgba(0, 31, 37, 0.45);
+  --shadow-soft: 0 14px 40px -16px rgba(11, 18, 32, 0.18);
+  --shadow-glow: 0 0 80px rgba(240, 124, 51, 0.28);
+  --radius: 1.25rem;
   --background: var(--paper);
   --foreground: var(--ink);
 }
@@ -34,9 +41,15 @@
   --color-leaf: var(--leaf);
   --color-leaf-deep: var(--leaf-deep);
   --color-leaf-soft: var(--leaf-soft);
+  --color-navy: var(--navy);
+  --color-peach: var(--peach);
+  --color-peach-deep: var(--peach-deep);
+  --color-butter: var(--butter);
+  --color-mint: var(--mint);
+  --color-lilac: var(--lilac);
+  --color-ember: var(--ember);
   --color-brass: var(--brass);
   --color-brass-soft: var(--brass-soft);
-  --color-ember: var(--ember);
   --color-wa: var(--wa);
   --font-display: var(--font-outfit);
   --font-body: var(--font-jakarta);
@@ -74,8 +87,8 @@ img {
 
 .display {
   font-family: var(--font-outfit), system-ui, sans-serif;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 }
 
 .soft-grid {
@@ -85,11 +98,22 @@ img {
   background-size: 56px 56px;
 }
 
-.hero-glow {
+.fudr-dark {
   background:
-    radial-gradient(900px 420px at 85% 10%, rgba(15, 118, 110, 0.16), transparent 55%),
-    radial-gradient(700px 380px at 10% 80%, rgba(37, 211, 102, 0.08), transparent 50%),
-    linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
+    radial-gradient(ellipse 70% 55% at 50% 55%, rgba(240, 124, 51, 0.22), transparent 62%),
+    radial-gradient(ellipse 40% 35% at 80% 20%, rgba(0, 163, 160, 0.12), transparent 50%),
+    #0c0c0c;
+}
+
+.reelo-navy {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 163, 160, 0.22), transparent 55%),
+    #001f25;
+}
+
+.card-float {
+  box-shadow: var(--shadow-soft);
+  border-radius: 18px;
 }
 
 @keyframes marquee {
@@ -104,7 +128,11 @@ img {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track.reverse {
+  animation-direction: reverse;
 }
 
 .marquee-track:hover {
@@ -117,44 +145,46 @@ img {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-14px);
+    transform: translateY(-12px);
   }
 }
 
-@keyframes float-y-delayed {
+@keyframes float-y-slow {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(-1deg);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-16px) rotate(1deg);
   }
 }
 
 .float-y {
-  animation: float-y 5s ease-in-out infinite;
+  animation: float-y 4.8s ease-in-out infinite;
 }
 
 .float-y-delayed {
-  animation: float-y-delayed 6.2s ease-in-out infinite 0.6s;
+  animation: float-y 5.6s ease-in-out infinite 0.7s;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
+.float-y-slow {
+  animation: float-y-slow 7s ease-in-out infinite 0.3s;
+}
+
+@keyframes pulse-soft {
+  0%,
   100% {
-    background-position: -200% 0;
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
   }
 }
 
-.text-shimmer {
-  background: linear-gradient(90deg, var(--ink) 20%, var(--leaf) 50%, var(--ink) 80%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 4.5s linear infinite;
+.glow-orb {
+  animation: pulse-soft 5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -164,11 +194,8 @@ img {
   .marquee-track,
   .float-y,
   .float-y-delayed,
-  .text-shimmer {
+  .float-y-slow,
+  .glow-orb {
     animation: none !important;
-  }
-  .text-shimmer {
-    color: var(--ink);
-    background: none;
   }
 }

@@ -13,9 +13,10 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const darkHero = pathname === "/" && !scrolled && !open;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,13 +38,15 @@ export function SiteHeader() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled || open
-            ? "border-b border-[color:var(--line)] bg-white/90 shadow-[0_8px_30px_-18px_rgba(11,18,32,0.25)] backdrop-blur-xl"
-            : "bg-white/70 backdrop-blur-md",
+          darkHero
+            ? "bg-transparent"
+            : scrolled || open
+              ? "border-b border-[color:var(--line)] bg-white/95 shadow-[0_8px_30px_-18px_rgba(11,18,32,0.25)] backdrop-blur-xl"
+              : "bg-white/80 backdrop-blur-md",
         )}
       >
         <div className="mx-auto flex h-[72px] max-w-[1180px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <BrandLogo />
+          <BrandLogo className={cn(darkHero && "[&_span]:text-white")} />
 
           <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
             {NAV_PRIMARY.map((item) => {
@@ -54,7 +57,13 @@ export function SiteHeader() {
                   href={item.href}
                   className={cn(
                     "relative rounded-full px-3.5 py-2 text-[13px] font-semibold transition",
-                    active ? "bg-leaf-soft text-leaf" : "text-ink-soft hover:bg-mist hover:text-ink",
+                    darkHero
+                      ? active
+                        ? "bg-white/15 text-peach-deep"
+                        : "text-white/70 hover:text-white"
+                      : active
+                        ? "bg-leaf-soft text-leaf-deep"
+                        : "text-ink-soft hover:bg-mist hover:text-ink",
                   )}
                 >
                   {item.label}
@@ -64,24 +73,44 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-3 xl:flex">
-            <Link href="/south" className="text-sm font-semibold text-ink-soft hover:text-ink">
+            <Link
+              href="/south"
+              className={cn(
+                "text-sm font-semibold",
+                darkHero ? "text-peach-deep hover:text-white" : "text-ink-soft hover:text-ink",
+              )}
+            >
               South-first
             </Link>
-            <ButtonLink href="/book-demo" className="!rounded-full !px-5 !py-2.5 !text-sm">
-              Book a demo
+            <ButtonLink
+              href="/book-demo"
+              className={cn(
+                "!rounded-full !px-5 !py-2.5 !text-sm",
+                darkHero && "!bg-ember hover:!brightness-110",
+              )}
+            >
+              Request demo
             </ButtonLink>
           </div>
 
           <div className="flex items-center gap-2 xl:hidden">
             <ButtonLink
               href="/book-demo"
-              className="!hidden !rounded-full !px-4 !py-2.5 !text-sm sm:!inline-flex"
+              className={cn(
+                "!hidden !rounded-full !px-4 !py-2.5 !text-sm sm:!inline-flex",
+                darkHero && "!bg-ember",
+              )}
             >
               Demo
             </ButtonLink>
             <button
               type="button"
-              className="grid h-11 w-11 place-items-center rounded-full border border-[color:var(--line-strong)] bg-paper"
+              className={cn(
+                "grid h-11 w-11 place-items-center rounded-full border",
+                darkHero
+                  ? "border-white/25 bg-white/10 text-white"
+                  : "border-[color:var(--line-strong)] bg-paper text-ink",
+              )}
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -90,19 +119,22 @@ export function SiteHeader() {
               <div className="relative h-3.5 w-5">
                 <span
                   className={cn(
-                    "absolute left-0 top-0 h-[2px] w-full rounded bg-ink transition",
+                    "absolute left-0 top-0 h-[2px] w-full rounded transition",
+                    darkHero ? "bg-white" : "bg-ink",
                     open && "top-1.5 rotate-45",
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-[6px] h-[2px] w-full rounded bg-ink transition",
+                    "absolute left-0 top-[6px] h-[2px] w-full rounded transition",
+                    darkHero ? "bg-white" : "bg-ink",
                     open && "opacity-0",
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-[12px] h-[2px] w-full rounded bg-ink transition",
+                    "absolute left-0 top-[12px] h-[2px] w-full rounded transition",
+                    darkHero ? "bg-white" : "bg-ink",
                     open && "top-1.5 -rotate-45",
                   )}
                 />
@@ -153,8 +185,8 @@ export function SiteHeader() {
                 ))}
               </ul>
               <div className="mt-6">
-                <ButtonLink href="/book-demo" className="w-full !rounded-full">
-                  Book a demo
+                <ButtonLink href="/book-demo" className="w-full !rounded-full !bg-ember">
+                  Request demo
                 </ButtonLink>
               </div>
             </motion.nav>
