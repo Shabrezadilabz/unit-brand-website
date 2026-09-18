@@ -1,8 +1,10 @@
-﻿@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 
 @theme {
-  --font-display: var(--font-outfit), 'Outfit', sans-serif;
-  --font-body: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 
   --color-ink: #0B1220;
   --color-ink-soft: #526072;
@@ -41,14 +43,14 @@ html {
 }
 
 body {
-  font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background: #fff;
   color: #0B1220;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Hide scrollbar */
@@ -203,26 +205,3 @@ h1, h2, h3, h4, h5, h6 {
 .stat-number {
   font-variant-numeric: tabular-nums;
 }
-
-/* Compat aliases for brand-website tokens */
-:root {
-  --leaf: #00A3A0;
-  --leaf-deep: #0F766E;
-  --leaf-soft: #D5F5F3;
-  --ember: #F07C33;
-  --ink: #0B1220;
-  --ink-soft: #526072;
-  --mist: #F4F6F9;
-  --paper: #FFFFFF;
-  --navy: #001F25;
-  --peach: #FEE6E0;
-  --peach-deep: #FFB38E;
-  --butter: #FFF2A8;
-  --mint: #D8F5EF;
-  --lilac: #EBE7FF;
-  --wa: #25D366;
-}
-.font-display { font-family: var(--font-outfit), Outfit, sans-serif; }
-.text-ink { color: #0B1220; }
-.text-ink-soft { color: #526072; }
-.bg-mist { background: #F4F6F9; }

@@ -1,80 +1,56 @@
-import type { Metadata } from "next";
-import { IMAGES } from "@/lib/images";
-import { PageShell } from "@/components/site/PageShell";
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Container, PageIntro, Section } from "@/components/ui/Section";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
-import { MaskImage } from "@/components/motion/ParallaxImage";
+﻿'use client';
 
-export const metadata: Metadata = {
-  title: "Floor & kitchen",
-  description: "The OS for the floor — waiter POS, chef KDS, aggregator punch notes.",
-};
+import Link from 'next/link';
 
 const bands = [
-  {
-    title: "Waiter",
-    body: "Table map, soft lock, close bill with name + phone + consent. Built for dense South casual dining.",
-  },
-  {
-    title: "Chef",
-    body: "KDS lanes: New / Cooking / Ready. Eighty-six without a war on the pass.",
-  },
-  {
-    title: "Aggregator",
-    body: "Swiggy / Zomato punch notes — no guest WhatsApp bill for platform orders.",
-  },
-  {
-    title: "Hardware",
-    body: "WhatsApp-first receipt. Optional ESC/POS thermal backup when the floor needs paper.",
-  },
+  { icon: 'ðŸ½ï¸', title: 'Waiter', color: '#D8F5EF', points: ['Table-mapped Android POS', 'Offline-first â€” service never stops', 'Split bills, modifiers, course routing', 'Loyalty redemption at checkout'] },
+  { icon: 'ðŸ”¥', title: 'Chef', color: '#FFF2A8', points: ['KDS shows every ticket real-time', 'Priority + prep timers per station', 'Course-aware â€” no missed dishes', 'Integrated with floor POS'] },
+  { icon: 'ðŸ“¦', title: 'Aggregator bridge', color: '#FEE6E0', points: ['Swiggy + Zomato orders into the same KDS', 'One menu â€” UNIT is source of truth', 'No double entry, no tablet farm'] },
+  { icon: 'ðŸ“¡', title: 'Hardware-light', color: '#EBE7FF', points: ['Android tablets only â€” no proprietary boxes', 'Kitchen screen: any TV + Android stick', 'WhatsApp-first â€” no bill printer required', 'UPI soundbox optional'] },
 ];
 
-export default function FloorKitchenPage() {
+export default function FloorKitchen() {
   return (
-    <PageShell>
-      <Section>
-        <Container>
-          <div className="grid items-end gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <Reveal>
-              <PageIntro
-                eyebrow="Floor & kitchen"
-                title="Not another CRM bolted onto someone else’s POS."
-                body="UNIT is the operating system for the floor — then the guest loop starts at the bill."
-              />
-              <div className="mt-8">
-                <ButtonLink href="/book-demo">Book demo</ButtonLink>
-              </div>
-            </Reveal>
-            <MaskImage
-              src={IMAGES.kitchen}
-              alt="Kitchen operations"
-              className="aspect-[5/4] rounded-3xl"
-            />
-          </div>
-        </Container>
-      </Section>
+    <div className="pt-24 pb-20" style={{ minHeight: '100vh' }}>
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
+            style={{ background: '#D5F5F3', color: '#0F766E' }}>Floor & Kitchen</span>
+          <h1 className="font-display font-black text-5xl mb-4" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
+            Not another CRM<br/>bolted onto someone<br/>else's POS
+          </h1>
+          <p className="text-lg max-w-xl mx-auto" style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            UNIT owns the floor and the kitchen. The guest loop starts at close bill â€” not at a loyalty app download.
+          </p>
+        </div>
 
-      <Section className="bg-mist-deep/50 pt-0">
-        <Container>
-          <Stagger className="grid gap-4 md:grid-cols-2">
-            {bands.map((b) => (
-              <StaggerItem key={b.title}>
-                <div className="h-full rounded-2xl border border-[color:var(--line)] bg-paper p-6 sm:p-8">
-                  <h2 className="display text-2xl font-bold text-leaf">{b.title}</h2>
-                  <p className="mt-3 text-ink-soft">{b.body}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/guest-loop">WhatsApp guest loop</ButtonLink>
-            <ButtonLink href="/features" variant="secondary">
-              Full feature inventory
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
-    </PageShell>
+        <div className="grid md:grid-cols-2 gap-6">
+          {bands.map((b, i) => (
+            <div key={i} className="rounded-3xl p-8" style={{ background: b.color }}>
+              <div className="text-4xl mb-4">{b.icon}</div>
+              <h3 className="font-display font-black text-2xl mb-5" style={{ color: '#0B1220' }}>{b.title}</h3>
+              <ul className="space-y-2.5">
+                {b.points.map((p, j) => (
+                  <li key={j} className="flex items-start gap-2 text-sm" style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                    <span className="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background: '#00A3A0' }}>
+                      <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                    </span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link href="/book-demo" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
+            style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            Request a floor demo â†’
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
+

@@ -1,88 +1,75 @@
-import type { Metadata } from "next";
-import { IMAGES } from "@/lib/images";
-import { PageShell } from "@/components/site/PageShell";
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import { Container, PageIntro, Section } from "@/components/ui/Section";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
-import { MaskImage } from "@/components/motion/ParallaxImage";
+﻿'use client';
 
-export const metadata: Metadata = {
-  title: "WhatsApp guest loop",
-  description: "Bill on WhatsApp → review → loyalty → redeem. Consent-first, anti-spam.",
-};
+import Link from 'next/link';
 
-const loops = [
-  {
-    title: "Bill on WhatsApp",
-    body: "Branded GST receipt image with UPI / cash / card. Guests keep the bill in the chat they already open.",
-  },
-  {
-    title: "Review invite",
-    body: "~15 minutes after paid — Google path for happy guests, private alerts for friction.",
-  },
-  {
-    title: "Loyalty stars",
-    body: "Milestones that redeem in the waiter app — not a forever-free points toy.",
-  },
-  {
-    title: "Bags & takeaway",
-    body: "Dual QR: HI on WhatsApp + commission-free takeaway web link. Not a chat bot.",
-  },
+const loopSteps = [
+  { step: 'Bill close', desc: 'Waiter takes name + phone. Consent captured inline. No QR, no form.', icon: 'ðŸ§¾', color: '#D8F5EF' },
+  { step: 'WhatsApp GST bill', desc: 'Branded bill hits in 30 seconds. UPI pay inline. No paper.', icon: 'ðŸ’¬', color: '#FFF2A8' },
+  { step: 'Review invite', desc: '5-star routes to Google. <4 star routes to you â€” guest never ghosted publicly.', icon: 'â­', color: '#FEE6E0' },
+  { step: 'Loyalty stars', desc: 'Stars auto-credited per visit. No app. Guest sees balance on their next WhatsApp bill.', icon: 'ðŸŒŸ', color: '#EBE7FF' },
+  { step: 'Redeem at table', desc: 'Waiter sees redeemable stars in POS. Guest redeems without any app or card.', icon: 'ðŸŽ', color: '#D8F5EF' },
 ];
 
-export default function GuestLoopPage() {
+export default function GuestLoop() {
   return (
-    <PageShell>
-      <Section className="overflow-hidden">
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <Reveal>
-              <PageIntro
-                eyebrow="Guest loop"
-                title="The loop that starts at the bill."
-                body="Competitors message guests after the fact. UNIT captures consent where settlement already happens — then earns the right to talk."
-              />
-              <p className="mt-4 rounded-xl border border-ember/25 bg-[#fff4ef] px-4 py-3 text-sm text-ink-soft">
-                Consent + STOP + anti-spam are product rules. Owner mass campaigns are UNIT-run —
-                not a blast console.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/pricing">See Growth plan campaigns</ButtonLink>
-                <ButtonLink href="/book-demo" variant="secondary">
-                  Book demo
-                </ButtonLink>
+    <div className="pt-24 pb-20" style={{ background: '#0C0C0C', minHeight: '100vh' }}>
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
+            style={{ background: 'rgba(0,163,160,0.2)', color: '#00A3A0' }}>Guest Loop</span>
+          <h1 className="font-display font-black text-5xl md:text-6xl text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
+            The loop that<br/>starts at the bill
+          </h1>
+          <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            No loyalty app. No QR game. Just WhatsApp â€” and the guest data you always wanted.
+          </p>
+        </div>
+
+        {/* Loop visual */}
+        <div className="relative max-w-2xl mx-auto">
+          {loopSteps.map((s, i) => (
+            <div key={i} className="flex gap-6 items-start mb-8">
+              <div className="flex flex-col items-center">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: s.color }}>
+                  {s.icon}
+                </div>
+                {i < loopSteps.length - 1 && <div className="w-px flex-1 mt-2" style={{ background: 'rgba(0,163,160,0.3)', minHeight: 32 }}/>}
               </div>
-            </Reveal>
-            <div className="relative">
-              <MaskImage
-                src={IMAGES.filterCoffee}
-                alt="Filter coffee — South guest ritual"
-                className="aspect-[4/5] rounded-[2rem]"
-              />
-              <div className="absolute -bottom-6 -left-2 right-6 rounded-2xl border border-[color:var(--line)] bg-paper p-4 shadow-[var(--shadow)] sm:left-6">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-wa">WhatsApp</p>
-                <p className="mt-1 text-sm font-semibold text-ink">Spice Garden — Indiranagar</p>
-                <p className="mt-1 text-xs text-ink-soft">GST bill · Pay with UPI · ★★★★★ review</p>
+              <div className="pt-3">
+                <h3 className="font-display font-bold text-xl text-white mb-1">{s.step}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{s.desc}</p>
               </div>
             </div>
+          ))}
+          {/* Loop back arrow */}
+          <div className="flex items-center gap-3 ml-7">
+            <div className="w-14 h-8 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00A3A0" strokeWidth="2" strokeLinecap="round">
+                <path d="M3 12a9 9 0 0 0 9 9 9 9 0 0 0 6-2.3"/><path d="M21 3v6h-6"/><path d="M21 9a9 9 0 0 0-9-6 9 9 0 0 0-6 2.3"/>
+              </svg>
+            </div>
+            <p className="text-sm font-semibold" style={{ color: '#00A3A0', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+              Guest returns â€” loop repeats automatically
+            </p>
           </div>
-        </Container>
-      </Section>
+        </div>
 
-      <Section>
-        <Container>
-          <Stagger className="grid gap-4 sm:grid-cols-2">
-            {loops.map((l) => (
-              <StaggerItem key={l.title}>
-                <div className="h-full rounded-2xl border border-[color:var(--line)] bg-paper p-6">
-                  <h2 className="display text-xl font-bold">{l.title}</h2>
-                  <p className="mt-2 text-sm text-ink-soft sm:text-base">{l.body}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </Container>
-      </Section>
-    </PageShell>
+        {/* Compliance note */}
+        <div className="mt-12 p-6 rounded-2xl max-w-2xl mx-auto" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <span className="font-semibold text-white">Anti-spam built-in.</span> Consent captured at checkout. STOP opt-out honoured. Mass campaigns are UNIT-supervised â€” no blast scheduling left to the restaurateur.
+          </p>
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/book-demo"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
+            style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            See the loop in action â†’
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
+
