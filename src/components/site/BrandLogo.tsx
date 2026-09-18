@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -5,11 +6,11 @@ type Props = {
   size?: "sm" | "md" | "lg";
   className?: string;
   wordmark?: boolean;
-  href?: string | null;
 };
 
 const sizes = { sm: 28, md: 36, lg: 48 } as const;
 
+/** Stitch app icon + stylish UNIT wordmark */
 export function BrandLogo({
   variant = "dark",
   size = "md",
@@ -17,39 +18,27 @@ export function BrandLogo({
   wordmark = true,
 }: Props) {
   const px = sizes[size];
-  const textSize = size === "sm" ? "text-lg" : size === "lg" ? "text-3xl" : "text-xl";
-  const wordmarkColor = variant === "light" ? "#FFFFFF" : "#0B1220";
+  const textSize = size === "sm" ? "text-2xl" : size === "lg" ? "text-4xl" : "text-3xl";
+  const wordmarkColor = variant === "light" ? "#FFFFFF" : "#0F766E";
 
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <svg
+      <Image
+        src="/unit-logo.png"
+        alt=""
         width={px}
         height={px}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-      >
-        <rect width="48" height="48" rx="13" fill="#00A3A0" />
-        <circle
-          cx="24"
-          cy="24"
-          r="13"
-          stroke="white"
-          strokeWidth="2.5"
-          strokeDasharray="50 12"
-          strokeLinecap="round"
-        />
-        <circle cx="24" cy="24" r="5" fill="white" />
-        <path d="M24 11 L28 16 L24 14 L20 16 Z" fill="white" opacity="0.9" />
-      </svg>
+        className="rounded-[22%]"
+        priority
+      />
       {wordmark && (
         <span
-          className={cn("font-bold tracking-tight", textSize)}
+          className={cn("leading-none", textSize)}
           style={{
             color: wordmarkColor,
-            fontFamily: "var(--font-outfit), Outfit, sans-serif",
-            letterSpacing: "-0.02em",
+            fontFamily: "var(--font-unit), Caveat, cursive",
+            fontWeight: 700,
+            letterSpacing: "0.02em",
           }}
         >
           UNIT

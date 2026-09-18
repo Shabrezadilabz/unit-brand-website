@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { PLANS } from "@/lib/content";
+import { INR } from "@/lib/images";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { cn } from "@/lib/cn";
 
@@ -39,7 +40,7 @@ export function PricingCards({ highlight = "growth" }: { highlight?: string }) {
             </p>
             <p className="mt-6 flex items-end gap-1">
               <span className="display text-4xl font-extrabold tracking-tight">
-                ₹{plan.price.toLocaleString("en-IN")}
+                {INR}{plan.price.toLocaleString("en-IN")}
               </span>
               <span className={cn("pb-1 text-sm", featured ? "text-white/60" : "text-ink-soft")}>
                 / outlet / month

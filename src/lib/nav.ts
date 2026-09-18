@@ -4,7 +4,6 @@ export type NavItem = {
   short?: string;
 };
 
-/** Full sitemap — every public marketing route */
 export const NAV_PRIMARY: NavItem[] = [
   { href: "/how-it-works", label: "How it works", short: "How" },
   { href: "/floor-kitchen", label: "Floor & kitchen", short: "Floor" },
@@ -17,7 +16,6 @@ export const NAV_PRIMARY: NavItem[] = [
 export const NAV_MORE: NavItem[] = [
   { href: "/add-ons", label: "Add-ons" },
   { href: "/why-unit", label: "Why UNIT" },
-  { href: "/south", label: "South-first" },
   { href: "/book-demo", label: "Book a demo" },
 ];
 
@@ -44,7 +42,6 @@ export const FOOTER_COLS = [
       { href: "/pricing", label: "Pricing" },
       { href: "/add-ons", label: "Add-ons" },
       { href: "/why-unit", label: "Why UNIT" },
-      { href: "/south", label: "South-first" },
     ],
   },
   {

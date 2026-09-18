@@ -11,14 +11,14 @@ const links = [
   { label: 'Guest loop', href: '/guest-loop' },
   { label: 'Features', href: '/features' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'South-first', href: '/south' },
 ];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isDark = pathname === '/' && !scrolled;
+  const darkRoutes = ['/', '/how-it-works', '/floor-kitchen', '/guest-loop', '/features', '/pricing'];
+  const isDark = darkRoutes.includes(pathname ?? '') && !scrolled;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);

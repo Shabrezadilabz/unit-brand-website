@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Caveat, Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import "./globals.css";
@@ -16,13 +16,19 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const caveat = Caveat({
+  variable: "--font-unit",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "UNIT — Run the floor. Own the guest.",
     template: "%s · UNIT",
   },
   description:
-    "UNIT is the South-first restaurant OS — POS, kitchen KDS, and WhatsApp bill → review → loyalty. Bengaluru pilots open.",
+    "UNIT is the restaurant OS — POS, kitchen KDS, and WhatsApp bill → review → loyalty for cafes, dine-in, pubs & nightlife.",
   metadataBase: new URL("https://unit.restaurant"),
   icons: {
     icon: "/unit-logo.png",
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "UNIT — Run the floor. Own the guest.",
     description:
-      "POS + kitchen + WhatsApp guest loop for Indian dine-in. Built for South density first.",
+      "POS + kitchen + WhatsApp guest loop for cafes, restaurants, pubs and nightlife.",
     type: "website",
     images: ["/unit-logo.png"],
   },
@@ -40,7 +46,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${jakarta.variable} antialiased`}>
+      <body className={`${outfit.variable} ${jakarta.variable} ${caveat.variable} antialiased`}>
         <SiteHeader />
         {children}
         <SiteFooter />

@@ -1,48 +1,101 @@
 'use client';
 
 import Link from 'next/link';
+import { IMAGES } from '@/lib/images';
 
 const ADDONS = [
-  { title: 'Branded bags & loyalty cards', detail: '100 free with plan · then ₹18–25/bag · ₹8–12/card · packs 100 / 250 / 500', img: 'https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=640&h=400&fit=crop&auto=format' },
-  { title: 'Nearby influencer gigs', detail: 'Creator at cost + UNIT 20–25% fee · min ₹5,000 · hyperlocal only', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=640&h=400&fit=crop&auto=format' },
-  { title: 'Message packs', detail: 'WhatsApp & email overages when you outgrow plan caps', img: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=640&h=400&fit=crop&auto=format' },
-  { title: 'Managed IG / digital', detail: 'Quoted campaigns — UNIT supervisor connects, spam-safe', img: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=640&h=400&fit=crop&auto=format' },
-  { title: 'Hardware kit', detail: 'ESC/POS thermal + optional UPI soundbox · WA-first by default', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=400&fit=crop&auto=format' },
-  { title: 'Onsite training', detail: '₹4,999–9,999 · floor + kitchen go-live with shift leads', img: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=640&h=400&fit=crop&auto=format' },
+  {
+    title: 'Branded bags & loyalty cards',
+    detail: 'Print kits for peak season — bags, cards, and table collateral when you need volume.',
+    img: IMAGES.brunch,
+  },
+  {
+    title: 'Nearby influencer gigs',
+    detail: 'Hyperlocal creators UNIT connects for you — spam-safe, approval-first.',
+    img: IMAGES.party,
+  },
+  {
+    title: 'Message packs',
+    detail: 'WhatsApp & email overages when you outgrow plan caps.',
+    img: IMAGES.cafe,
+  },
+  {
+    title: 'Managed IG / digital',
+    detail: 'Quoted campaigns — UNIT supervisor connects, you stay brand-safe.',
+    img: IMAGES.cocktail,
+  },
+  {
+    title: 'Hardware kit',
+    detail: 'Android tablets, optional thermal + UPI soundbox — WhatsApp-first by default.',
+    img: IMAGES.kitchen,
+  },
+  {
+    title: 'Onsite training',
+    detail: 'Floor + kitchen go-live with your shift leads — one day, done right.',
+    img: IMAGES.fineDining,
+  },
 ];
 
 export default function AddOnsPage() {
   return (
-    <div className="pt-24 pb-20" style={{ background: '#F4F6F9', minHeight: '100vh' }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <div className="pt-24 pb-20 relative overflow-hidden" style={{ background: '#0C0C0C', minHeight: '100vh' }}>
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px)',
+          backgroundSize: '64px 64px',
+        }}
+      />
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
-            style={{ background: '#D5F5F3', color: '#0F766E' }}>Add-ons</span>
-          <h1 className="font-display font-black text-4xl md:text-5xl mb-4" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
-            Power when you need it
+          <span
+            className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
+            style={{
+              background: 'rgba(0,163,160,0.15)',
+              color: '#00A3A0',
+              border: '1px solid rgba(0,163,160,0.25)',
+            }}
+          >
+            Add-ons
+          </span>
+          <h1
+            className="font-display font-black text-4xl md:text-5xl mb-4 text-white"
+            style={{ letterSpacing: '-0.03em' }}
+          >
+            Power when you{' '}
+            <span style={{ color: '#FFB38E' }}>need it</span>
           </h1>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: '#526072' }}>
+          <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.55)' }}>
             Not stuffed into SaaS. Unlock bags, gigs, and packs when peak season demands it.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {ADDONS.map((a) => (
-            <article key={a.title} className="rounded-3xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
+            <article
+              key={a.title}
+              className="rounded-3xl overflow-hidden transition-all hover:-translate-y-1"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
               <div className="relative h-40 bg-cover bg-center" style={{ backgroundImage: `url(${a.img})` }} />
               <div className="p-6">
-                <h2 className="font-display font-bold text-lg mb-2" style={{ color: '#0B1220' }}>{a.title}</h2>
-                <p className="text-sm leading-relaxed" style={{ color: '#526072' }}>{a.detail}</p>
+                <h2 className="font-display font-bold text-lg mb-2 text-white">{a.title}</h2>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                  {a.detail}
+                </p>
               </div>
             </article>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/book-demo"
+          <Link
+            href="/book-demo"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
-            style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}>
-            Request print kit / gig →
+            style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}
+          >
+            Talk to UNIT about add-ons →
           </Link>
         </div>
       </div>

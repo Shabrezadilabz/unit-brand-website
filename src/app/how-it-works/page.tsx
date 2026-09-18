@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { IMAGES, INR } from '@/lib/images';
 
 const processSteps = [
   {
@@ -11,7 +11,14 @@ const processSteps = [
     body: 'Capture consent at close. Send a branded GST bill on WhatsApp — not a forgotten slip in a wallet.',
     points: ['Name + phone at settlement', 'Table QR for walk-ins', 'WhatsApp GST in ~30s'],
     phoneTitle: 'Bill closed.',
-    color: '#D8F5EF',
+    waStatus: 'online',
+    wa: {
+      img: IMAGES.brunch,
+      title: 'Your GST bill is ready',
+      text: `Table 14 · Total ${INR}1,840. Pay securely with UPI.`,
+      cta: 'Pay with UPI',
+      time: '8:42 PM',
+    },
   },
   {
     number: '02',
@@ -19,52 +26,142 @@ const processSteps = [
     body: 'RFM personas, loyalty stars, visit history — auto-built from every bill. No loyalty app download.',
     points: ['RFM scoring', 'LOYAL / AT RISK tags', 'Stars without an app'],
     phoneTitle: 'Guest memory.',
-    color: '#FFF2A8',
+    waStatus: 'typing…',
+    wa: {
+      img: IMAGES.latte,
+      title: 'How was your experience?',
+      text: 'Tap a star. 5★ goes to Google. Anything less comes straight to the owner.',
+      cta: 'Rate your visit ★★★★★',
+      time: '8:45 PM',
+    },
   },
   {
     number: '03',
     title: 'Launch the right campaign',
-    body: 'South festivals, win-back, birthdays — UNIT-supervised and anti-spam. You focus on cooking.',
-    points: ['Ugadi · Onam · Pongal · Vishu', 'Approve audience + offer', 'UNIT handles send'],
+    body: 'Weekend rush, birthdays, wine nights — UNIT-supervised and anti-spam. You focus on service.',
+    points: ['Occasion packs', 'Approve audience + offer', 'UNIT handles send'],
     phoneTitle: 'Next best reason.',
-    color: '#EBE7FF',
+    waStatus: 'business account',
+    wa: {
+      img: IMAGES.cocktail,
+      title: 'Friday wine night · 20% off',
+      text: 'Your usual table is waiting. Bring a friend — first pour on us.',
+      cta: 'Book a table',
+      time: '10:12 AM',
+    },
   },
 ];
 
 const flowSteps = [
-  { num: '01', title: 'Waiter runs the floor', desc: 'Android POS — table-mapped, offline-first. Waiter punches order, sends to KDS.', img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=640&h=480&fit=crop&auto=format', color: '#D8F5EF' },
-  { num: '02', title: 'Chef cooks on KDS', desc: 'Kitchen Display shows every ticket in real time. Priority alerts, prep timers, station routing.', img: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=640&h=480&fit=crop&auto=format', color: '#FFF2A8' },
-  { num: '03', title: 'Close bill with consent', desc: 'Waiter takes name + phone at checkout. One tap. Consent captured. Guest loop begins.', img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=480&fit=crop&auto=format', color: '#FEE6E0' },
-  { num: '04', title: 'WhatsApp GST bill + UPI', desc: 'Branded WhatsApp GST bill lands fast. Guest pays via UPI inline.', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=640&h=480&fit=crop&auto=format', color: '#EBE7FF' },
-  { num: '05', title: 'Review → loyalty → return', desc: 'Auto review invite. Stars credited. Guest redeems next visit at the table.', img: 'https://images.unsplash.com/photo-1529543545094-091fcb97c4a6?w=640&h=480&fit=crop&auto=format', color: '#D8F5EF' },
+  {
+    num: '01',
+    title: 'Staff runs the floor',
+    desc: 'Android POS — table-mapped, offline-first. Orders punch straight to the pass.',
+    img: IMAGES.fineDining,
+  },
+  {
+    num: '02',
+    title: 'Kitchen cooks on KDS',
+    desc: 'Every ticket live. Priority alerts, prep timers, station routing.',
+    img: IMAGES.kitchen,
+  },
+  {
+    num: '03',
+    title: 'Close bill with consent',
+    desc: 'Name + phone at checkout. One tap. The guest loop begins.',
+    img: IMAGES.cafe,
+  },
+  {
+    num: '04',
+    title: 'WhatsApp GST bill + UPI',
+    desc: 'Branded bill lands fast. Guest pays via UPI inline.',
+    img: IMAGES.barWine,
+  },
+  {
+    num: '05',
+    title: 'Review → loyalty → return',
+    desc: 'Auto review invite. Stars credited. Guest redeems next visit at the table.',
+    img: IMAGES.party,
+  },
 ];
+
+function WhatsAppPhone({
+  template,
+  status,
+}: {
+  template: { img: string; title: string; text: string; cta: string; time: string };
+  status: string;
+}) {
+  return (
+    <div className="phone phone-secondary" key={template.title}>
+      <div className="phone-wa-shell">
+        <div className="phone-wa-header">
+          <div className="wa-avatar">SG</div>
+          <div>
+            <div className="wa-name">Spice Garden</div>
+            <div className="wa-status">{status}</div>
+          </div>
+        </div>
+        <div className="phone-wa-thread">
+          <div className="wa-incoming">Thanks for dining with us tonight.</div>
+          <div className="wa-tpl">
+            <img src={template.img} alt="" />
+            <div className="wa-tpl-body">
+              <p className="wa-tpl-title">{template.title}</p>
+              <p className="wa-tpl-text">{template.text}</p>
+              <div className="wa-tpl-meta">
+                <span className="wa-time">{template.time}</span>
+                <span className="wa-time">✓✓</span>
+              </div>
+            </div>
+            <div className="wa-tpl-btn">{template.cta}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function HowItWorksPage() {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setStep((s) => (s + 1) % processSteps.length), 4000);
+    const id = setInterval(() => setStep((s) => (s + 1) % processSteps.length), 4500);
     return () => clearInterval(id);
   }, []);
 
   const active = processSteps[step];
 
   return (
-    <div style={{ minHeight: '100vh' }}>
-      {/* Replit-style light process (combined with Figma motion) */}
-      <section className="pt-28 pb-20" style={{ background: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-6">
+    <div style={{ minHeight: '100vh', background: '#0C0C0C' }}>
+      <section className="pt-28 pb-20 relative overflow-hidden">
+        <div
+          className="absolute top-20 left-1/2 -translate-x-1/2 pointer-events-none opacity-80"
+          style={{
+            width: 640,
+            height: 640,
+            background:
+              'radial-gradient(ellipse at center, rgba(240,124,51,0.2) 0%, transparent 70%)',
+            borderRadius: '50%',
+          }}
+        />
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] mb-3" style={{ color: '#00A3A0' }}>
                 How we do it
               </p>
-              <h1 className="font-display font-black text-4xl md:text-5xl leading-[1.05]" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
-                Good service<br />should compound.
+              <h1
+                className="font-display font-black text-4xl md:text-5xl leading-[1.05] text-white"
+                style={{ letterSpacing: '-0.03em' }}
+              >
+                Good service
+                <br />
+                <span style={{ color: '#FFB38E' }}>should compound.</span>
               </h1>
             </div>
-            <p className="max-w-md text-base" style={{ color: '#526072' }}>
-              UNIT connects the moments your team already owns, so each visit makes the next one easier to earn.
+            <p className="max-w-md text-base" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              UNIT connects floor, kitchen, and WhatsApp — so every visit makes the next one easier to earn.
             </p>
           </div>
 
@@ -76,132 +173,126 @@ export default function HowItWorksPage() {
                 onClick={() => setStep(index)}
                 className="rounded-full px-5 py-2.5 text-sm font-semibold transition-all"
                 style={{
-                  background: index === step ? '#00A3A0' : '#FFFFFF',
-                  color: index === step ? '#FFFFFF' : '#0B1220',
-                  border: index === step ? 'none' : '1px solid #E7ECF2',
-                  boxShadow: index === step ? '0 10px 28px -12px rgba(0,163,160,0.55)' : undefined,
+                  background: index === step ? '#00A3A0' : 'rgba(255,255,255,0.06)',
+                  color: index === step ? '#FFFFFF' : 'rgba(255,255,255,0.65)',
+                  border: index === step ? 'none' : '1px solid rgba(255,255,255,0.1)',
                 }}
               >
                 {item.number} / {item.title}
               </button>
             ))}
-            <span className="ml-auto text-xs font-semibold" style={{ color: '#526072' }}>
-              0{step + 1} — 03
-            </span>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-center rounded-[28px] p-6 md:p-10" style={{ background: '#F4F6F9' }}>
-            <div key={step} className="animate-fade-up">
-              <p className="font-display font-black text-6xl mb-2" style={{ color: '#00A3A0', letterSpacing: '-0.04em' }}>
-                {active.number}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-sm font-bold mb-2" style={{ color: '#00A3A0' }}>
+                STEP {active.number}
               </p>
-              <h2 className="font-display font-black text-3xl mb-3" style={{ color: '#0B1220' }}>
-                {active.title}.
+              <h2 className="font-display font-black text-3xl md:text-4xl text-white mb-4" style={{ letterSpacing: '-0.03em' }}>
+                {active.title}
               </h2>
-              <p className="text-base mb-5" style={{ color: '#526072' }}>{active.body}</p>
+              <p className="mb-6 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                {active.body}
+              </p>
               <ul className="space-y-2">
                 {active.points.map((p) => (
-                  <li key={p} className="flex gap-2 text-sm" style={{ color: '#526072' }}>
-                    <span style={{ color: '#00A3A0' }}>✓</span> {p}
+                  <li key={p} className="flex items-center gap-2 text-sm text-white/80">
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F07C33' }} />
+                    {p}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="flex justify-center">
-              <div
-                className="w-[260px] rounded-[2rem] p-3 shadow-2xl animate-scale-in"
-                style={{ background: '#111', border: '3px solid rgba(255,255,255,0.12)' }}
-                key={`phone-${step}`}
-              >
-                <div className="flex justify-between text-[10px] text-white/50 px-2 py-2">
+            <div className="phone-stage">
+              <div className="phone" key={`ops-${step}`}>
+                <div className="phone-top">
                   <span>9:41</span>
                   <span>UNIT / {active.number}</span>
                 </div>
-                <div className="rounded-2xl p-4 min-h-[320px]" style={{ background: active.color }}>
-                  <h4 className="font-display font-black text-xl mb-4" style={{ color: '#0B1220' }}>
-                    {active.phoneTitle}
-                  </h4>
-                  {step === 0 && (
-                    <>
-                      <div className="rounded-xl bg-white p-3 mb-3 text-sm space-y-2" style={{ color: '#0B1220' }}>
-                        <div className="flex justify-between"><span>Masala dosa × 2</span><b>₹320</b></div>
-                        <div className="flex justify-between"><span>Filter coffee × 2</span><b>₹140</b></div>
-                        <div className="flex justify-between border-t pt-2"><span>Total</span><b>₹460</b></div>
+                <h4>{active.phoneTitle}</h4>
+                {step === 0 && (
+                  <>
+                    <div className="ticket">
+                      <div className="ticket-row">
+                        <span>Truffle pasta × 2</span>
+                        <b>{INR}1,280</b>
                       </div>
-                      <div className="rounded-xl p-3 text-sm" style={{ background: '#DCFCE7', color: '#166534' }}>
-                        Your GST bill from Spice Garden is ready. Pay securely with UPI.
+                      <div className="ticket-row">
+                        <span>House wine × 2</span>
+                        <b>{INR}560</b>
                       </div>
-                    </>
-                  )}
-                  {step === 1 && (
-                    <>
-                      <div className="rounded-xl p-4 mb-3" style={{ background: '#EBE7FF' }}>
-                        <p className="font-bold text-sm">Arjun R.</p>
-                        <p className="text-xs mt-1" style={{ color: '#665e83' }}>12 visits · 4.8 rating</p>
-                        <p className="mt-3 tracking-widest" style={{ color: '#F07C33' }}>★★★★☆</p>
+                      <div className="ticket-row">
+                        <span>Total</span>
+                        <b>{INR}1,840</b>
                       </div>
-                      <div className="rounded-xl p-3 text-sm" style={{ background: '#D8F5EF', color: '#0F766E' }}>
-                        You have 80 UNIT stars to redeem on your next visit.
+                    </div>
+                    <div className="wa-bubble">Your GST bill is ready. Pay securely with UPI.</div>
+                  </>
+                )}
+                {step === 1 && (
+                  <>
+                    <div className="ticket" style={{ background: 'var(--lilac)' }}>
+                      <div style={{ fontWeight: 800, fontSize: 12 }}>Arjun R.</div>
+                      <div style={{ marginTop: 8, color: '#665e83' }}>12 visits · 4.8 rating</div>
+                      <div style={{ marginTop: 14, color: 'var(--orange)', letterSpacing: 2 }}>★★★★☆</div>
+                    </div>
+                    <div className="wa-bubble" style={{ background: 'var(--mint)', color: 'var(--teal-deep)' }}>
+                      You have 80 UNIT stars to redeem on your next visit.
+                    </div>
+                  </>
+                )}
+                {step === 2 && (
+                  <>
+                    <div className="ticket" style={{ background: 'var(--butter)' }}>
+                      <div style={{ fontWeight: 800, fontSize: 11 }}>Suggested for 42 guests</div>
+                      <div style={{ marginTop: 11, fontFamily: 'var(--app-font-display)', fontSize: 22 }}>
+                        Wine Friday
                       </div>
-                    </>
-                  )}
-                  {step === 2 && (
-                    <>
-                      <div className="rounded-xl p-4 mb-3" style={{ background: '#FFF2A8' }}>
-                        <p className="text-[11px] font-bold">Suggested for 42 guests</p>
-                        <p className="font-display font-black text-2xl mt-2">Pongal week</p>
-                        <p className="text-[10px] mt-2" style={{ color: '#755f00' }}>Approved · low frequency · local</p>
+                      <div style={{ marginTop: 7, color: '#755f00', fontSize: 9 }}>
+                        Approved · low frequency
                       </div>
-                      <div className="rounded-xl p-3 text-sm" style={{ background: '#FEE6E0', color: '#8e4938' }}>
-                        Your table is waiting. Celebrate Pongal with us.
-                      </div>
-                    </>
-                  )}
-                </div>
+                    </div>
+                    <div className="wa-bubble" style={{ background: '#fce9e1', color: '#8e4938' }}>
+                      Your table is waiting. Celebrate Friday with us.
+                    </div>
+                  </>
+                )}
               </div>
+              <WhatsAppPhone template={active.wa} status={active.waStatus} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Figma-style five beats with lifestyle images */}
-      <section className="py-20" style={{ background: '#F4F6F9' }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ background: '#D5F5F3', color: '#0F766E' }}>Five beats</span>
-            <h2 className="font-display font-black text-4xl md:text-5xl mb-4" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
-              From waiter to WhatsApp<br />to return visit.
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-6">
+      <section className="pb-24" style={{ background: '#001F25' }}>
+        <div className="max-w-6xl mx-auto px-6 pt-16">
+          <h2 className="font-display font-black text-3xl text-white mb-10 text-center" style={{ letterSpacing: '-0.03em' }}>
+            From first order to return visit
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {flowSteps.map((s) => (
-              <article
-                key={s.num}
-                className="grid md:grid-cols-[1fr_280px] gap-0 overflow-hidden rounded-3xl bg-white shadow-sm hover:shadow-lg transition-shadow"
-              >
-                <div className="p-7 md:p-9 flex gap-5 items-start">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-black text-lg flex-shrink-0"
-                    style={{ background: s.color, color: '#0F766E' }}>{s.num}</div>
-                  <div>
-                    <h3 className="font-display font-black text-xl mb-2" style={{ color: '#0B1220' }}>{s.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: '#526072' }}>{s.desc}</p>
-                  </div>
+              <div key={s.num} className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                <img src={s.img} alt="" className="w-full h-28 object-cover" />
+                <div className="p-4">
+                  <p className="text-xs font-bold mb-1" style={{ color: '#00A3A0' }}>
+                    {s.num}
+                  </p>
+                  <p className="font-display font-bold text-sm text-white mb-1">{s.title}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    {s.desc}
+                  </p>
                 </div>
-                <div className="relative min-h-[160px] md:min-h-full">
-                  <Image src={s.img} alt={s.title} fill className="object-cover" sizes="280px" />
-                </div>
-              </article>
+              </div>
             ))}
           </div>
-
-          <div className="text-center mt-14">
-            <Link href="/book-demo"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
-              style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}>
-              Book a South pilot demo →
+          <div className="text-center mt-12">
+            <Link
+              href="/book-demo"
+              className="inline-flex items-center px-8 py-3.5 rounded-full font-semibold text-white text-sm hover:scale-105 transition-all"
+              style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}
+            >
+              Request demo →
             </Link>
           </div>
         </div>
