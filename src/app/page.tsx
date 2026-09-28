@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -95,7 +95,7 @@ function HowWeDoIt() {
       {
         number: '02',
         title: 'Build guest memory.',
-        body: 'UNIT turns an ordinary visit into useful memory: preference, frequency, spend and the next good reason to return.',
+        body: 'B&B turns an ordinary visit into useful memory: preference, frequency, spend and the next good reason to return.',
         points: ['RFM segments that make sense', 'Stars that guests can redeem', 'A profile your floor can use'],
         phoneTitle: 'Guest memory.',
         waStatus: 'typing…',
@@ -110,8 +110,8 @@ function HowWeDoIt() {
       {
         number: '03',
         title: 'Launch the right campaign.',
-        body: 'Win back a Tuesday regular. Remember a birthday. Show up for Ugadi. UNIT keeps the message useful and the volume human.',
-        points: ['Occasion packs', 'UNIT-supervised sends', 'STOP-first, anti-spam by design'],
+        body: 'Win back a Tuesday regular. Remember a birthday. Show up for Ugadi. B&B keeps the message useful and the volume human.',
+        points: ['Occasion packs', 'B&B-supervised sends', 'STOP-first, anti-spam by design'],
         phoneTitle: 'Next best reason.',
         waStatus: 'business account',
         wa: {
@@ -146,7 +146,7 @@ function HowWeDoIt() {
             </h2>
           </div>
           <p className="section-copy">
-            UNIT connects the moments your team already owns, so each visit makes the next one easier
+            B&B connects the moments your team already owns, so each visit makes the next one easier
             to earn.
           </p>
         </div>
@@ -185,7 +185,7 @@ function HowWeDoIt() {
             <div className="phone" key={`ops-${step}`}>
               <div className="phone-top">
                 <span>9:41</span>
-                <span>UNIT / {current.number}</span>
+                <span>B&B / {current.number}</span>
               </div>
               <h4>{current.phoneTitle}</h4>
               {step === 0 && (
@@ -219,7 +219,7 @@ function HowWeDoIt() {
                     </div>
                   </div>
                   <div className="wa-bubble" style={{ background: 'var(--mint)', color: 'var(--teal-deep)' }}>
-                    You have 80 UNIT stars to redeem on your next visit.
+                    You have 80 B&B stars to redeem on your next visit.
                   </div>
                 </>
               )}
@@ -298,7 +298,7 @@ export default function HomePage() {
       {
         name: 'Campaigns',
         title: 'Less blast. More reason.',
-        body: 'UNIT helps you show up around local moments, with campaigns your team can stand behind.',
+        body: 'B&B helps you show up around local moments, with campaigns your team can stand behind.',
         bullets: ['Win-back and birthday packs', 'Festival-ready templates', 'Approval before every send'],
         color: 'var(--peach)',
         image: photos.dosa,
@@ -341,16 +341,16 @@ export default function HomePage() {
 
   const faqs: [string, string][] = [
     [
-      'Is UNIT another loyalty CRM?',
-      'No. UNIT owns the floor and kitchen first. The guest loop starts when your team closes the bill.',
+      'Is B&B another loyalty CRM?',
+      'No. B&B owns the floor and kitchen first. The guest loop starts when your team closes the bill.',
     ],
     [
       'Do we need to replace our current POS?',
-      'UNIT is designed to be the source of truth for your floor. We map the right migration path during your pilot.',
+      'B&B is designed to be the source of truth for your floor. We map the right migration path during your pilot.',
     ],
     [
       'Can guests pay on WhatsApp?',
-      'Yes. UNIT sends a branded GST bill with a UPI payment path, then follows up with a review invite.',
+      'Yes. B&B sends a branded GST bill with a UPI payment path, then follows up with a review invite.',
     ],
     [
       'How do campaigns avoid becoming spam?',
@@ -358,7 +358,7 @@ export default function HomePage() {
     ],
     [
       'Is there a consumer app to download?',
-      'No private-label Play Store tax. UNIT gives your guests a branded PWA and WhatsApp-first experience.',
+      'No private-label Play Store tax. B&B gives your guests a branded PWA and WhatsApp-first experience.',
     ],
     [
       'Where are you starting?',
@@ -433,7 +433,7 @@ export default function HomePage() {
         <div className="container">
           <div className="section-head reveal">
             <div>
-              <span className="eyebrow">The UNIT loop</span>
+              <span className="eyebrow">The B&B loop</span>
               <h2 className="section-title">
                 Every bill can
                 <br />
@@ -453,7 +453,7 @@ export default function HomePage() {
                 </span>
                 <h3>Build a base that drives revenue.</h3>
                 <p>
-                  Your regulars are already telling you what they value. UNIT gives the team a useful
+                  Your regulars are already telling you what they value. B&B gives the team a useful
                   view before the next order lands.
                 </p>
                 <ul>
@@ -495,7 +495,7 @@ export default function HomePage() {
                 </span>
                 <h3>Stay top-of-mind, not in the way.</h3>
                 <p>
-                  Win back a quiet Tuesday. Celebrate a birthday. Fill Friday wine night. UNIT helps your team
+                  Win back a quiet Tuesday. Celebrate a birthday. Fill Friday wine night. B&B helps your team
                   show up with a reason, not a blast.
                 </p>
                 <ul>
@@ -525,7 +525,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="section-copy">
-              From first order to final follow-up, UNIT gives the people running the shift the same
+              From first order to final follow-up, B&B gives the people running the shift the same
               source of truth.
             </p>
           </div>
@@ -676,7 +676,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="section-copy">
-              No public self-serve signup. UNIT onboards you properly, with the right modules for your
+              No public self-serve signup. B&B onboards you properly, with the right modules for your
               floor.
             </p>
           </div>
@@ -726,7 +726,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Link href="/book-demo" className="outline-btn" style={{ display: 'block', textAlign: 'center' }}>
-                  Talk to UNIT →
+                  Talk to B&B →
                 </Link>
               </article>
             ))}

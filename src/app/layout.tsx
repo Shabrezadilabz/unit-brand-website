@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Caveat, Outfit, Plus_Jakarta_Sans } from "next/font/google";
+﻿import type { Metadata } from "next";
+import { Cormorant_Garamond, Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import "./globals.css";
@@ -16,37 +16,37 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const caveat = Caveat({
-  variable: "--font-unit",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-bb",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "UNIT — Run the floor. Own the guest.",
-    template: "%s · UNIT",
+    default: "B&B — Be a Brand",
+    template: "%s · B&B",
   },
   description:
-    "UNIT is the restaurant OS — POS, kitchen KDS, and WhatsApp bill → review → loyalty for cafes, dine-in, pubs & nightlife.",
+    "B&B is the restaurant OS — POS, kitchen KDS, and WhatsApp bill → review → loyalty. Be a Brand.",
   metadataBase: new URL("https://unit.restaurant"),
   icons: {
-    icon: "/unit-logo.png",
-    apple: "/unit-logo.png",
+    icon: "/bb-mark.svg",
+    apple: "/bb-logo.png",
   },
   openGraph: {
-    title: "UNIT — Run the floor. Own the guest.",
+    title: "B&B — Be a Brand",
     description:
       "POS + kitchen + WhatsApp guest loop for cafes, restaurants, pubs and nightlife.",
     type: "website",
-    images: ["/unit-logo.png"],
+    images: ["/bb-logo.png"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${jakarta.variable} ${caveat.variable} antialiased`}>
+      <body className={`${outfit.variable} ${jakarta.variable} ${cormorant.variable} antialiased`}>
         <SiteHeader />
         {children}
         <SiteFooter />

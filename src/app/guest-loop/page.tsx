@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -291,7 +291,7 @@ export default function GuestLoop() {
         >
           <p className="text-sm text-center" style={{ color: 'rgba(255,255,255,0.55)' }}>
             <span className="font-semibold text-white">Anti-spam built-in.</span> Consent at checkout. STOP
-            honoured. Campaigns are UNIT-supervised.
+            honoured. Campaigns are B&B-supervised.
           </p>
         </div>
 

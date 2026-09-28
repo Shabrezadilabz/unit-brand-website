@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import { cn } from "@/lib/cn";
 const QUOTES = [
   {
     quote:
-      "Partnering on UNIT was one of our best floor decisions. Bill → WhatsApp → review finally runs without a second CRM login.",
+      "Partnering on B&B was one of our best floor decisions. Bill → WhatsApp → review finally runs without a second CRM login.",
     name: "Vikram Sankhla",
     role: "Managing Partner, House of Tikka",
     brand: "Indiranagar",
@@ -30,7 +30,7 @@ const QUOTES = [
   },
   {
     quote:
-      "uEngage-style ordering tools never replaced our POS. UNIT actually runs the restaurant — then the loop.",
+      "uEngage-style ordering tools never replaced our POS. B&B actually runs the restaurant — then the loop.",
     name: "Sneha Iyer",
     role: "Founder, Dosa Counter",
     brand: "Jayanagar",
@@ -52,7 +52,7 @@ export function TestimonialsCarousel() {
       <Container>
         <Reveal className="mb-10 text-center">
           <h2 className="display text-[clamp(1.9rem,4vw,3rem)] font-extrabold text-ink">
-            What South operators say about UNIT
+            What South operators say about B&B
           </h2>
         </Reveal>
 

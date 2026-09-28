@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 
 export default function NotFound() {
@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="max-w-md text-center">
         <p className="display text-6xl font-extrabold text-leaf">404</p>
         <h1 className="display mt-4 text-3xl font-bold text-ink">Page not plated.</h1>
-        <p className="mt-3 text-ink-soft">That route isn’t on the UNIT menu.</p>
+        <p className="mt-3 text-ink-soft">That route isn’t on the B&B menu.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <ButtonLink href="/">Back home</ButtonLink>
           <Link href="/book-demo" className="inline-flex items-center text-sm font-semibold text-leaf">

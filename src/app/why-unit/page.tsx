@@ -1,18 +1,18 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 
 const rows = [
-  { feature: 'Own floor POS + KDS', loyaltyCRM: false, orderingApps: false, unit: true },
-  { feature: 'Consent captured at bill', loyaltyCRM: false, orderingApps: false, unit: true },
-  { feature: 'WhatsApp GST bill', loyaltyCRM: false, orderingApps: false, unit: true },
-  { feature: 'Review â†’ loyalty â†’ redeem', loyaltyCRM: true, orderingApps: false, unit: true },
-  { feature: 'No app download for guest', loyaltyCRM: false, orderingApps: false, unit: true },
-  { feature: 'Campaigns & RFM', loyaltyCRM: true, orderingApps: false, unit: true },
-  { feature: 'South festival packs', loyaltyCRM: false, orderingApps: false, unit: true },
-  { feature: 'Aggregator bridge', loyaltyCRM: false, orderingApps: true, unit: true },
-  { feature: 'Branded PWA (no Play Store tax)', loyaltyCRM: false, orderingApps: true, unit: true },
-  { feature: 'UNIT-supervised campaigns', loyaltyCRM: false, orderingApps: false, unit: true },
+  { feature: 'Own floor POS + KDS', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'Consent captured at bill', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'WhatsApp GST bill', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'Review â†’ loyalty â†’ redeem', loyaltyCRM: true, orderingApps: false, B&B: true },
+  { feature: 'No app download for guest', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'Campaigns & RFM', loyaltyCRM: true, orderingApps: false, B&B: true },
+  { feature: 'South festival packs', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'Aggregator bridge', loyaltyCRM: false, orderingApps: true, B&B: true },
+  { feature: 'Branded PWA (no Play Store tax)', loyaltyCRM: false, orderingApps: true, B&B: true },
+  { feature: 'B&B-supervised campaigns', loyaltyCRM: false, orderingApps: false, B&B: true },
 ];
 
 function Check({ val }: { val: boolean }) {
@@ -33,12 +33,12 @@ export default function WhyUnit() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
-            style={{ background: '#D5F5F3', color: '#0F766E' }}>Why UNIT</span>
+            style={{ background: '#D5F5F3', color: '#0F766E' }}>Why B&B</span>
           <h1 className="font-display font-black text-5xl mb-4" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
-            They help you message guests.<br/>UNIT runs the restaurant.
+            They help you message guests.<br/>B&B runs the restaurant.
           </h1>
           <p className="text-lg max-w-xl mx-auto" style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            Loyalty CRM bolt-ons bolt onto someone else's POS. Ordering apps own the guest. UNIT owns the floor.
+            Loyalty CRM bolt-ons bolt onto someone else's POS. Ordering apps own the guest. B&B owns the floor.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function WhyUnit() {
                 <th className="text-left px-6 py-5 text-sm font-medium" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'Plus Jakarta Sans, sans-serif', width: '40%' }}>Capability</th>
                 <th className="text-center px-4 py-5 text-sm font-semibold text-white" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Loyalty CRM bolt-ons</th>
                 <th className="text-center px-4 py-5 text-sm font-semibold text-white" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Ordering apps</th>
-                <th className="text-center px-4 py-5 text-sm font-bold" style={{ color: '#00A3A0', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>UNIT</th>
+                <th className="text-center px-4 py-5 text-sm font-bold" style={{ color: '#00A3A0', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>B&B</th>
               </tr>
             </thead>
             <tbody>
@@ -58,7 +58,7 @@ export default function WhyUnit() {
                   <td className="px-6 py-4 text-sm font-medium" style={{ color: '#0B1220', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{r.feature}</td>
                   <td className="px-4 py-4"><Check val={r.loyaltyCRM}/></td>
                   <td className="px-4 py-4"><Check val={r.orderingApps}/></td>
-                  <td className="px-4 py-4"><Check val={r.unit}/></td>
+                  <td className="px-4 py-4"><Check val={r.B&B}/></td>
                 </tr>
               ))}
             </tbody>

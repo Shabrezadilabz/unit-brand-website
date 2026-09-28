@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -42,7 +42,7 @@ const TOOLS = [
     label: "Guest CRM",
     color: "bg-butter",
     title: "Own your audience, not the aggregators",
-    points: ["RFM-lite personas", "CSV / Petpooja sync", "UNIT-native guest memory"],
+    points: ["RFM-lite personas", "CSV / Petpooja sync", "B&B-native guest memory"],
     image: IMAGES.guest2,
   },
   {
@@ -50,7 +50,7 @@ const TOOLS = [
     label: "Campaigns",
     color: "bg-leaf-soft",
     title: "South festivals without spam",
-    points: ["Win-back · birthday · occasions", "UNIT-run packs", "Nearby poster — 1 / week"],
+    points: ["Win-back · birthday · occasions", "B&B-run packs", "Nearby poster — 1 / week"],
     image: IMAGES.bananaLeaf,
   },
   {

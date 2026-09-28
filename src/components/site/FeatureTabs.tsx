@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
@@ -30,7 +30,7 @@ const TABS = [
     id: "wa",
     label: "Growth packs",
     title: "Campaigns without spam",
-    body: "Win-back, birthday, festivals — UNIT-run packs. You keep AI insights and a weekly nearby poster, not a blast console.",
+    body: "Win-back, birthday, festivals — B&B-run packs. You keep AI insights and a weekly nearby poster, not a blast console.",
     points: ["South festival packs", "RFM / ROI lite", "Anti-spam by design"],
   },
 ] as const;

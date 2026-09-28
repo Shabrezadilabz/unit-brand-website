@@ -1,10 +1,10 @@
-export const BRAND = {
-  name: "UNIT",
-  tagline: "Run the floor. Own the guest.",
+﻿export const BRAND = {
+  name: "B&B",
+  tagline: "Be a Brand",
   support:
     "POS + kitchen + WhatsApp bill, review, loyalty — built for Indian dine-in. Bengaluru first.",
   city: "Bengaluru",
-  email: "hello@unit.restaurant",
+  email: "hello@B&B.restaurant",
   sampleOutlet: "Spice Garden — Indiranagar",
 } as const;
 
@@ -41,13 +41,13 @@ export const PLANS = [
     id: "pro",
     name: "Pro",
     price: 6999,
-    blurb: "Multi-outlet density with a UNIT supervisor.",
+    blurb: "Multi-outlet density with a B&B supervisor.",
     popular: false,
     points: [
       "Everything in Growth",
       "Multi-outlet geo campaigns",
       "Higher message & AI caps",
-      "Priority UNIT supervisor",
+      "Priority B&B supervisor",
     ],
     cta: "Talk Pro onboarding",
   },
@@ -82,15 +82,15 @@ export const FLOW_STEPS = [
 ] as const;
 
 export const COMPARE_ROWS = [
-  { feature: "Own POS + KDS", crm: false, apps: false, unit: true },
-  { feature: "Phone + consent at close bill", crm: "partial", apps: false, unit: true },
-  { feature: "Branded WhatsApp GST receipt", crm: "partial", apps: "partial", unit: true },
-  { feature: "Review → redeem in waiter app", crm: false, apps: false, unit: true },
-  { feature: "Takeaway web (not chat bot)", crm: false, apps: true, unit: true },
-  { feature: "Branded PWA (no Play Store tax)", crm: false, apps: false, unit: true },
-  { feature: "Campaigns + RFM-lite", crm: true, apps: "partial", unit: true },
-  { feature: "South festival packs", crm: "partial", apps: false, unit: true },
-  { feature: "Supervisor-connected marketing", crm: false, apps: false, unit: true },
+  { feature: "Own POS + KDS", crm: false, apps: false, B&B: true },
+  { feature: "Phone + consent at close bill", crm: "partial", apps: false, B&B: true },
+  { feature: "Branded WhatsApp GST receipt", crm: "partial", apps: "partial", B&B: true },
+  { feature: "Review → redeem in waiter app", crm: false, apps: false, B&B: true },
+  { feature: "Takeaway web (not chat bot)", crm: false, apps: true, B&B: true },
+  { feature: "Branded PWA (no Play Store tax)", crm: false, apps: false, B&B: true },
+  { feature: "Campaigns + RFM-lite", crm: true, apps: "partial", B&B: true },
+  { feature: "South festival packs", crm: "partial", apps: false, B&B: true },
+  { feature: "Supervisor-connected marketing", crm: false, apps: false, B&B: true },
 ] as const;
 
 export const FEATURE_BANDS = [
@@ -108,22 +108,22 @@ export const FEATURE_BANDS = [
   },
   {
     title: "Campaigns",
-    items: ["Win-back", "Birthday", "Festivals", "Occasions — UNIT-run packs"],
+    items: ["Win-back", "Birthday", "Festivals", "Occasions — B&B-run packs"],
   },
   {
     title: "Marketing handoff",
-    items: ["Email briefs", "Instagram", "Influencer gigs", "Digital — UNIT connects"],
+    items: ["Email briefs", "Instagram", "Influencer gigs", "Digital — B&B connects"],
   },
   {
     title: "Modules & CRM",
-    items: ["Toggle what you need", "UNIT native CRM", "CSV import", "Petpooja sync"],
+    items: ["Toggle what you need", "B&B native CRM", "CSV import", "Petpooja sync"],
   },
   {
     title: "AI insights",
     items: ["Restaurant-only chat", "Plan token budgets", "Poster caps", "No spam blasts"],
   },
   {
-    title: "UNIT ops board",
+    title: "B&B ops board",
     items: ["Onboarding", "Module requests", "Unlocks", "South pilot desk"],
   },
 ] as const;
@@ -135,7 +135,7 @@ export const ADDONS = [
   },
   {
     title: "Nearby influencer gigs",
-    detail: "Creator at cost + UNIT 20–25% fee · min ₹5,000 · hyperlocal only",
+    detail: "Creator at cost + B&B 20–25% fee · min ₹5,000 · hyperlocal only",
   },
   {
     title: "Message packs",
@@ -143,7 +143,7 @@ export const ADDONS = [
   },
   {
     title: "Managed IG / digital",
-    detail: "Quoted campaigns — UNIT supervisor connects, you stay spam-safe",
+    detail: "Quoted campaigns — B&B supervisor connects, you stay spam-safe",
   },
   {
     title: "Hardware kit",

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ const festivals = [
 ];
 
 const southTraits = [
-  { icon: 'ðŸ«™', title: 'South DNA', desc: 'Jain filter, veg-first default, thali logic, filter coffee timing â€” UNIT knows the South dining cadence.' },
+  { icon: 'ðŸ«™', title: 'South DNA', desc: 'Jain filter, veg-first default, thali logic, filter coffee timing â€” B&B knows the South dining cadence.' },
   { icon: 'ðŸ“±', title: 'WhatsApp-native', desc: 'South India is WhatsApp country. No app install friction. The guest loop works because it lives in WhatsApp.' },
   { icon: 'ðŸ™ï¸', title: 'Bengaluru-first', desc: 'GTM starts in Bengaluru â€” Indiranagar, Koramangala, JP Nagar, HSR, Jayanagar. Then Chennai, Hyderabad, Kochi.' },
 ];
@@ -32,7 +32,7 @@ export default function SouthFirst() {
             <span style={{ color: '#FFB38E' }}>For South dine-in.</span>
           </h1>
           <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            Not a generic SaaS shipped from Delhi. UNIT is a South restaurant OS â€” with South festivals, South dining logic, and South GTM.
+            Not a generic SaaS shipped from Delhi. B&B is a South restaurant OS â€” with South festivals, South dining logic, and South GTM.
           </p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function SouthFirst() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="font-display font-black text-4xl mb-3" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>Festival campaigns, pre-built</h2>
-            <p style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>UNIT-supervised. UNIT-timed. You approve the offer. We handle the rest.</p>
+            <p style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>B&B-supervised. B&B-timed. You approve the offer. We handle the rest.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {festivals.map((f, i) => (

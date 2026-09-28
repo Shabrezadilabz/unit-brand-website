@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 
@@ -8,8 +8,8 @@ const integrations = [
   { name: 'UPI Soundbox', category: 'Payments', emoji: 'ðŸ”Š', desc: 'Audio confirmation for UPI payments at table.' },
   { name: 'Petpooja', category: 'POS bridge', emoji: 'ðŸ“‹', desc: 'Menu sync and order bridging for existing Petpooja setups.' },
   { name: 'Dotpe', category: 'Ordering', emoji: 'ðŸ“±', desc: 'Web order integration â€” takeaway + dine-in table ordering.' },
-  { name: 'Swiggy', category: 'Aggregator', emoji: 'ðŸ›µ', desc: 'Orders auto-route to UNIT KDS. One kitchen view.' },
-  { name: 'Zomato', category: 'Aggregator', emoji: 'ðŸ•', desc: 'Orders auto-route to UNIT KDS. UNIT is source of truth.' },
+  { name: 'Swiggy', category: 'Aggregator', emoji: 'ðŸ›µ', desc: 'Orders auto-route to B&B KDS. One kitchen view.' },
+  { name: 'Zomato', category: 'Aggregator', emoji: 'ðŸ•', desc: 'Orders auto-route to B&B KDS. B&B is source of truth.' },
   { name: 'Resend', category: 'Email', emoji: 'ðŸ“§', desc: 'Transactional email for staff comms and reports.' },
   { name: 'OpenAI', category: 'AI', emoji: 'ðŸ¤–', desc: 'Powers AI insights dashboard â€” revenue trend, churn alerts.' },
 ];
@@ -22,10 +22,10 @@ export default function Integrations() {
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-4"
             style={{ background: '#D5F5F3', color: '#0F766E' }}>Integrations</span>
           <h1 className="font-display font-black text-5xl mb-4" style={{ color: '#0B1220', letterSpacing: '-0.03em' }}>
-            UNIT is the source of truth.<br/>Bridges are optional.
+            B&B is the source of truth.<br/>Bridges are optional.
           </h1>
           <p className="text-lg max-w-xl mx-auto" style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            Connect what you already use. UNIT reconciles everything.
+            Connect what you already use. B&B reconciles everything.
           </p>
         </div>
 

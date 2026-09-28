@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -20,7 +20,7 @@ const STEPS = [
   {
     n: "2",
     title: "BUILD GUEST MEMORY",
-    body: "RFM personas, visit history, and loyalty stars — your data stays in UNIT, not a forever-free bolt-on CRM.",
+    body: "RFM personas, visit history, and loyalty stars — your data stays in B&B, not a forever-free bolt-on CRM.",
     badge: "Guest CRM",
     badgeColor: "bg-leaf",
     screen: IMAGES.guest,
@@ -30,7 +30,7 @@ const STEPS = [
   {
     n: "3",
     title: "LAUNCH THE RIGHT CAMPAIGNS",
-    body: "Ugadi, Onam, Pongal, win-back — UNIT-supervised packs so South density never becomes spam density.",
+    body: "Ugadi, Onam, Pongal, win-back — B&B-supervised packs so South density never becomes spam density.",
     badge: "Instagram",
     badgeColor: "bg-gradient-to-br from-purple-500 to-ember",
     screen: IMAGES.dosa,

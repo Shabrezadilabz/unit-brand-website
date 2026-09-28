@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -33,7 +33,7 @@ const PANELS = [
     title: "Stay top-of-mind — South festival packs",
     points: [
       "Ugadi · Onam · Pongal · Vishu · Diwali packs",
-      "UNIT-run campaigns — anti-spam by design",
+      "B&B-run campaigns — anti-spam by design",
       "Measure visits and revenue, not vanity opens",
     ],
     image: IMAGES.dosa,
@@ -46,7 +46,7 @@ export function PastelFeaturePanels() {
       <Container>
         <Reveal className="mb-12 text-center">
           <h2 className="display text-[clamp(1.9rem,4vw,3.2rem)] font-extrabold text-ink">
-            How UNIT helps restaurateurs
+            How B&B helps restaurateurs
           </h2>
         </Reveal>
 

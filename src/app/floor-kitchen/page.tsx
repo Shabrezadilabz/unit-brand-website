@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { IMAGES } from '@/lib/images';
@@ -79,7 +79,7 @@ export default function FloorKitchen() {
             <span style={{ color: '#FFB38E' }}>bolted onto someone else&apos;s POS</span>
           </h1>
           <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            UNIT owns the floor and the kitchen — for cafes, restaurants, pubs, and nightlife. The guest
+            B&B owns the floor and the kitchen — for cafes, restaurants, pubs, and nightlife. The guest
             loop starts at close bill.
           </p>
         </div>

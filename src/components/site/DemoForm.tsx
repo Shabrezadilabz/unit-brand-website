@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ export function DemoForm() {
       >
         <p className="display text-2xl font-bold text-ink">Request received.</p>
         <p className="mt-3 text-ink-soft">
-          A UNIT supervisor will WhatsApp you within one business day for Bengaluru / South
+          A B&B supervisor will WhatsApp you within one business day for Bengaluru / South
           onboarding.
         </p>
         <div className="mt-6 flex justify-center">
@@ -82,7 +82,7 @@ export function DemoForm() {
         Request callback
       </button>
       <p className="mt-3 text-center text-xs text-ink-soft">
-        No public self-serve signup — UNIT onboards you.
+        No public self-serve signup — B&B onboards you.
       </p>
     </form>
   );

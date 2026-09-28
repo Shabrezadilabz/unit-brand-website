@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ const plans = [
       'Multi-outlet dashboard',
       'Managed IG campaigns',
       'Influencer gig credit',
-      'Priority UNIT onboarding',
+      'Priority B&B onboarding',
       'Dedicated ops support',
     ],
   },

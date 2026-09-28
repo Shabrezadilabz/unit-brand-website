@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -64,7 +64,7 @@ function SpotCard({
   );
 }
 
-/** Figma dark hero — CSS spotlight collage (one card enlarges, floats, then next) */
+/** Figma dark hero â€” CSS spotlight collage (one card enlarges, floats, then next) */
 export function FigmaHero() {
   const [active, setActive] = useState<CardId>('brunch');
   const [tick, setTick] = useState(0);
@@ -120,7 +120,7 @@ export function FigmaHero() {
                 border: '1px solid rgba(0,163,160,0.25)',
               }}
             >
-              Restaurant OS
+              B&B Â· Be a Brand
             </div>
             <h1
               className="font-display font-black text-white leading-[0.92] mb-6"
@@ -130,13 +130,13 @@ export function FigmaHero() {
               <br />
               <span style={{ color: '#FFB38E' }}>LOYAL GUESTS</span>
               <br />
-              BY&nbsp;<span style={{ color: '#FFB38E' }}>3×</span>
+              BY&nbsp;<span style={{ color: '#FFB38E' }}>3Ã—</span>
             </h1>
             <p
               className="text-lg leading-relaxed mb-8 max-w-md mx-auto lg:mx-0"
               style={{ color: 'rgba(255,255,255,0.6)' }}
             >
-              POS + Kitchen KDS + WhatsApp bill → review → loyalty. One OS for cafes, restaurants, pubs
+              POS + Kitchen KDS + WhatsApp bill â†’ review â†’ loyalty. One OS for cafes, restaurants, pubs
               &amp; nightlife.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
@@ -145,7 +145,7 @@ export function FigmaHero() {
                 className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-semibold text-white text-sm transition-all hover:scale-105 hover:shadow-xl active:scale-95"
                 style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}
               >
-                Request demo →
+                Request demo â†’
               </Link>
               <Link
                 href="/how-it-works"
@@ -193,7 +193,7 @@ export function FigmaHero() {
                     />
                     <div>
                       <p className="text-white text-xs font-semibold">Arjun R.</p>
-                      <p className="text-purple-300 text-[10px]">TOP SPENDER · LOYAL</p>
+                      <p className="text-purple-300 text-[10px]">TOP SPENDER Â· LOYAL</p>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-1.5 mt-3">
@@ -209,7 +209,7 @@ export function FigmaHero() {
                   <div className="mt-2 flex gap-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <span key={i} className="text-yellow-400 text-xs">
-                        ★
+                        â˜…
                       </span>
                     ))}
                   </div>
@@ -236,7 +236,7 @@ export function FigmaHero() {
                       className="text-sm mt-0.5"
                       style={{
                         color: '#0F766E',
-                        fontFamily: 'var(--font-unit), Caveat, cursive',
+                        fontFamily: "var(--font-bb), 'Cormorant Garamond', Georgia, serif",
                         fontWeight: 700,
                       }}
                     >
@@ -286,7 +286,7 @@ export function FigmaHero() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-[10px] text-gray-400">via WhatsApp · Spice Garden</p>
+                  <p className="text-[10px] text-gray-400">via WhatsApp Â· Spice Garden</p>
                 </div>
               </button>
             </SpotCard>
@@ -380,7 +380,7 @@ export function FigmaHero() {
                     </div>
                     <p
                       className="text-white text-sm"
-                      style={{ fontFamily: 'var(--font-unit), Caveat, cursive', fontWeight: 700 }}
+                      style={{ fontFamily: 'var(--font-bb), 'Cormorant Garamond', Georgia, serif', fontWeight: 700 }}
                     >
                       Spice Garden
                     </p>
@@ -389,9 +389,9 @@ export function FigmaHero() {
                     className="rounded-lg p-2 text-xs leading-relaxed"
                     style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.75)' }}
                   >
-                    Your GST bill is ready ✅
+                    Your GST bill is ready âœ…
                     <br />
-                    <span style={{ color: '#25D366' }}>Pay via UPI →</span>
+                    <span style={{ color: '#25D366' }}>Pay via UPI â†’</span>
                   </div>
                 </div>
               </button>
@@ -464,7 +464,7 @@ export function FigmaHero() {
             </div>
           </div>
 
-          {/* Mobile — one card at a time, pop in */}
+          {/* Mobile â€” one card at a time, pop in */}
           <div className="lg:hidden relative h-72">
             <div
               key={`${active}-${tick}`}
@@ -508,10 +508,10 @@ export function FigmaHero() {
                     className="font-display font-black text-2xl text-center"
                     style={{ color: active === 'review' || active === 'donut' ? '#0B1220' : '#fff' }}
                   >
-                    {active === 'profile' && 'Arjun R. · Loyal'}
-                    {active === 'review' && '★★★★★ via WhatsApp'}
+                    {active === 'profile' && 'Arjun R. Â· Loyal'}
+                    {active === 'review' && 'â˜…â˜…â˜…â˜…â˜… via WhatsApp'}
                     {active === 'revenue' && `${INR}2,12,355 repeat`}
-                    {active === 'wa' && 'GST bill · Pay UPI'}
+                    {active === 'wa' && 'GST bill Â· Pay UPI'}
                     {active === 'donut' && '68% repeat guests'}
                   </p>
                 </div>

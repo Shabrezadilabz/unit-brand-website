@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ const STORIES = [
     title: "204× campaign ROI story",
     metric: "₹13.6L",
     metricLabel: "from one festival pack week",
-    quote: "UNIT closed the loop from bill to WhatsApp to return visit — without Play Store tax.",
+    quote: "B&B closed the loop from bill to WhatsApp to return visit — without Play Store tax.",
     image: IMAGES.noodles,
   },
   {

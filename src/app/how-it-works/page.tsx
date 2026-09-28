@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -38,8 +38,8 @@ const processSteps = [
   {
     number: '03',
     title: 'Launch the right campaign',
-    body: 'Weekend rush, birthdays, wine nights — UNIT-supervised and anti-spam. You focus on service.',
-    points: ['Occasion packs', 'Approve audience + offer', 'UNIT handles send'],
+    body: 'Weekend rush, birthdays, wine nights — B&B-supervised and anti-spam. You focus on service.',
+    points: ['Occasion packs', 'Approve audience + offer', 'B&B handles send'],
     phoneTitle: 'Next best reason.',
     waStatus: 'business account',
     wa: {
@@ -161,7 +161,7 @@ export default function HowItWorksPage() {
               </h1>
             </div>
             <p className="max-w-md text-base" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              UNIT connects floor, kitchen, and WhatsApp — so every visit makes the next one easier to earn.
+              B&B connects floor, kitchen, and WhatsApp — so every visit makes the next one easier to earn.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function HowItWorksPage() {
               <div className="phone" key={`ops-${step}`}>
                 <div className="phone-top">
                   <span>9:41</span>
-                  <span>UNIT / {active.number}</span>
+                  <span>B&B / {active.number}</span>
                 </div>
                 <h4>{active.phoneTitle}</h4>
                 {step === 0 && (
@@ -238,7 +238,7 @@ export default function HowItWorksPage() {
                       <div style={{ marginTop: 14, color: 'var(--orange)', letterSpacing: 2 }}>★★★★☆</div>
                     </div>
                     <div className="wa-bubble" style={{ background: 'var(--mint)', color: 'var(--teal-deep)' }}>
-                      You have 80 UNIT stars to redeem on your next visit.
+                      You have 80 B&B stars to redeem on your next visit.
                     </div>
                   </>
                 )}

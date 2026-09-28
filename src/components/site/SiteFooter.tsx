@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { BrandLogo } from '@/components/site/BrandLogo';
@@ -19,7 +19,7 @@ const cols = [
     heading: 'Grow',
     links: [
       { label: 'Pricing', href: '/pricing' },
-      { label: 'Why UNIT', href: '/why-unit' },
+      { label: 'Why B&B', href: '/why-B&B' },
     ],
   },
   {
@@ -37,7 +37,7 @@ export function SiteFooter() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-2 md:col-span-1">
-            <BrandLogo variant="light" />
+            <BrandLogo variant="light" tagline />
             <p className="mt-4 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Restaurant OS for cafes, dine-in, pubs &amp; nightlife.
               <br />
@@ -54,7 +54,7 @@ export function SiteFooter() {
                 </svg>
               </a>
               <a
-                href="mailto:hello@unit.restaurant"
+                href="mailto:hello@B&B.restaurant"
                 className="w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-80"
                 style={{ background: 'rgba(255,255,255,0.1)' }}
               >
@@ -93,10 +93,10 @@ export function SiteFooter() {
           style={{ borderColor: 'rgba(255,255,255,0.08)' }}
         >
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            {'\u00A9'} 2025 UNIT Restaurant Technologies
+            {'\u00A9'} {new Date().getFullYear()} B&B · Be a Brand
           </p>
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            Run the floor. Own the guest.
+            Be a Brand
           </p>
         </div>
       </div>

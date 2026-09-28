@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { IMAGES } from '@/lib/images';
@@ -11,7 +11,7 @@ const ADDONS = [
   },
   {
     title: 'Nearby influencer gigs',
-    detail: 'Hyperlocal creators UNIT connects for you — spam-safe, approval-first.',
+    detail: 'Hyperlocal creators B&B connects for you — spam-safe, approval-first.',
     img: IMAGES.party,
   },
   {
@@ -21,7 +21,7 @@ const ADDONS = [
   },
   {
     title: 'Managed IG / digital',
-    detail: 'Quoted campaigns — UNIT supervisor connects, you stay brand-safe.',
+    detail: 'Quoted campaigns — B&B supervisor connects, you stay brand-safe.',
     img: IMAGES.cocktail,
   },
   {
@@ -95,7 +95,7 @@ export default function AddOnsPage() {
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
             style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)' }}
           >
-            Talk to UNIT about add-ons →
+            Talk to B&B about add-ons →
           </Link>
         </div>
       </div>

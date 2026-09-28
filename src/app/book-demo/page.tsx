@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { INR } from '@/lib/images';
@@ -6,7 +6,7 @@ import { INR } from '@/lib/images';
 const nextSteps = [
   {
     num: '01',
-    title: 'UNIT calls you',
+    title: 'B&B calls you',
     desc: 'Within 24 hours of your request. We discuss your restaurant, floor size, and outlets.',
   },
   {
@@ -66,10 +66,10 @@ export default function BookDemo() {
               className="font-display font-black text-4xl md:text-5xl mb-4 text-white"
               style={{ letterSpacing: '-0.03em' }}
             >
-              Talk to <span style={{ color: '#FFB38E' }}>UNIT</span>
+              Talk to <span style={{ color: '#FFB38E' }}>B&B</span>
             </h1>
             <p className="text-lg mb-10" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              No public self-serve signup. UNIT onboards you — callback within 24 hours.
+              No public self-serve signup. B&B onboards you — callback within 24 hours.
             </p>
 
             <div className="flex flex-col gap-6">

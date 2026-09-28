@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -45,7 +45,7 @@ const categories = [
       'Weekend, birthday & occasion packs',
       'Win-back flows for lapsed guests',
       'Wine night / brunch automations',
-      'UNIT-supervised — no spam risk',
+      'B&B-supervised — no spam risk',
       'Per-send metered pricing',
     ],
   },

@@ -1,4 +1,4 @@
-export type NavItem = {
+﻿export type NavItem = {
   href: string;
   label: string;
   short?: string;
@@ -15,7 +15,7 @@ export const NAV_PRIMARY: NavItem[] = [
 
 export const NAV_MORE: NavItem[] = [
   { href: "/add-ons", label: "Add-ons" },
-  { href: "/why-unit", label: "Why UNIT" },
+  { href: "/why-unit", label: "Why B&B" },
   { href: "/book-demo", label: "Book a demo" },
 ];
 
@@ -41,7 +41,7 @@ export const FOOTER_COLS = [
     links: [
       { href: "/pricing", label: "Pricing" },
       { href: "/add-ons", label: "Add-ons" },
-      { href: "/why-unit", label: "Why UNIT" },
+      { href: "/why-unit", label: "Why B&B" },
     ],
   },
   {
@@ -49,7 +49,7 @@ export const FOOTER_COLS = [
     links: [
       { href: "/book-demo", label: "Book a demo" },
       { href: "mailto:hello@unit.restaurant", label: "hello@unit.restaurant" },
-      { href: "https://wa.me/919999999999", label: "WhatsApp UNIT" },
+      { href: "https://wa.me/919999999999", label: "WhatsApp B&B" },
     ],
   },
 ] as const;
