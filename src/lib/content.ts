@@ -1,4 +1,4 @@
-﻿export const BRAND = {
+export const BRAND = {
   name: "B&B",
   tagline: "Be a Brand",
   support:
@@ -82,15 +82,15 @@ export const FLOW_STEPS = [
 ] as const;
 
 export const COMPARE_ROWS = [
-  { feature: "Own POS + KDS", crm: false, apps: false, B&B: true },
-  { feature: "Phone + consent at close bill", crm: "partial", apps: false, B&B: true },
-  { feature: "Branded WhatsApp GST receipt", crm: "partial", apps: "partial", B&B: true },
-  { feature: "Review → redeem in waiter app", crm: false, apps: false, B&B: true },
-  { feature: "Takeaway web (not chat bot)", crm: false, apps: true, B&B: true },
-  { feature: "Branded PWA (no Play Store tax)", crm: false, apps: false, B&B: true },
-  { feature: "Campaigns + RFM-lite", crm: true, apps: "partial", B&B: true },
-  { feature: "South festival packs", crm: "partial", apps: false, B&B: true },
-  { feature: "Supervisor-connected marketing", crm: false, apps: false, B&B: true },
+  { feature: "Own POS + KDS", crm: false, apps: false, bb: true },
+  { feature: "Phone + consent at close bill", crm: "partial", apps: false, bb: true },
+  { feature: "Branded WhatsApp GST receipt", crm: "partial", apps: "partial", bb: true },
+  { feature: "Review → redeem in waiter app", crm: false, apps: false, bb: true },
+  { feature: "Takeaway web (not chat bot)", crm: false, apps: true, bb: true },
+  { feature: "Branded PWA (no Play Store tax)", crm: false, apps: false, bb: true },
+  { feature: "Campaigns + RFM-lite", crm: true, apps: "partial", bb: true },
+  { feature: "South festival packs", crm: "partial", apps: false, bb: true },
+  { feature: "Supervisor-connected marketing", crm: false, apps: false, bb: true },
 ] as const;
 
 export const FEATURE_BANDS = [

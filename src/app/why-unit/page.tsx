@@ -1,18 +1,18 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 
 const rows = [
-  { feature: 'Own floor POS + KDS', loyaltyCRM: false, orderingApps: false, B&B: true },
-  { feature: 'Consent captured at bill', loyaltyCRM: false, orderingApps: false, B&B: true },
-  { feature: 'WhatsApp GST bill', loyaltyCRM: false, orderingApps: false, B&B: true },
-  { feature: 'Review â†’ loyalty â†’ redeem', loyaltyCRM: true, orderingApps: false, B&B: true },
-  { feature: 'No app download for guest', loyaltyCRM: false, orderingApps: false, B&B: true },
-  { feature: 'Campaigns & RFM', loyaltyCRM: true, orderingApps: false, B&B: true },
-  { feature: 'South festival packs', loyaltyCRM: false, orderingApps: false, B&B: true },
-  { feature: 'Aggregator bridge', loyaltyCRM: false, orderingApps: true, B&B: true },
-  { feature: 'Branded PWA (no Play Store tax)', loyaltyCRM: false, orderingApps: true, B&B: true },
-  { feature: 'B&B-supervised campaigns', loyaltyCRM: false, orderingApps: false, B&B: true },
+  { feature: 'Own floor POS + KDS', loyaltyCRM: false, orderingApps: false, bb: true },
+  { feature: 'Consent captured at bill', loyaltyCRM: false, orderingApps: false, bb: true },
+  { feature: 'WhatsApp GST bill', loyaltyCRM: false, orderingApps: false, bb: true },
+  { feature: 'Review → loyalty → redeem', loyaltyCRM: true, orderingApps: false, bb: true },
+  { feature: 'No app download for guest', loyaltyCRM: false, orderingApps: false, bb: true },
+  { feature: 'Campaigns & RFM', loyaltyCRM: true, orderingApps: false, bb: true },
+  { feature: 'South festival packs', loyaltyCRM: false, orderingApps: false, bb: true },
+  { feature: 'Aggregator bridge', loyaltyCRM: false, orderingApps: true, bb: true },
+  { feature: 'Branded PWA (no Play Store tax)', loyaltyCRM: false, orderingApps: true, bb: true },
+  { feature: 'B&B-supervised campaigns', loyaltyCRM: false, orderingApps: false, bb: true },
 ];
 
 function Check({ val }: { val: boolean }) {
@@ -38,7 +38,7 @@ export default function WhyUnit() {
             They help you message guests.<br/>B&B runs the restaurant.
           </h1>
           <p className="text-lg max-w-xl mx-auto" style={{ color: '#526072', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            Loyalty CRM bolt-ons bolt onto someone else's POS. Ordering apps own the guest. B&B owns the floor.
+            Loyalty CRM bolt-ons bolt onto someone else&apos;s POS. Ordering apps own the guest. B&B owns the floor.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export default function WhyUnit() {
                   <td className="px-6 py-4 text-sm font-medium" style={{ color: '#0B1220', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{r.feature}</td>
                   <td className="px-4 py-4"><Check val={r.loyaltyCRM}/></td>
                   <td className="px-4 py-4"><Check val={r.orderingApps}/></td>
-                  <td className="px-4 py-4"><Check val={r.B&B}/></td>
+                  <td className="px-4 py-4"><Check val={r.bb}/></td>
                 </tr>
               ))}
             </tbody>
@@ -69,11 +69,10 @@ export default function WhyUnit() {
           <Link href="/book-demo"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white transition-all hover:scale-105"
             style={{ background: '#F07C33', boxShadow: '0 6px 24px rgba(240,124,51,0.4)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            Request demo â†’
+            Request demo →
           </Link>
         </div>
       </div>
     </div>
   );
 }
-

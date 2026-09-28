@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -380,7 +380,7 @@ export function FigmaHero() {
                     </div>
                     <p
                       className="text-white text-sm"
-                      style={{ fontFamily: 'var(--font-bb), 'Cormorant Garamond', Georgia, serif', fontWeight: 700 }}
+                      style={{ fontFamily: "var(--font-bb), Cormorant Garamond, Georgia, serif", fontWeight: 700 }}
                     >
                       Spice Garden
                     </p>
